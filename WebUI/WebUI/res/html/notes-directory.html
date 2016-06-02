@@ -1,0 +1,28 @@
+﻿<div class="row">
+    <div class="col-md-3">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-success">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="panel-body p-none" style="height: calc(100vh - 150px);">
+                <scrollable>
+                    <ul class="notes">
+                        <li ng-repeat="note in notes">
+                            <a ui-sref="app.notes.directory.note({note: note.code})">
+                                <span class="note-title" ng-bind="note.title"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </scrollable>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9" ui-view="note"></div>
+</div>

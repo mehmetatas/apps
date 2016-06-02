@@ -1,0 +1,27 @@
+﻿<section class="panel" ng-show="mode==0">
+    <header class="panel-heading" ng-bind="note.title"></header>
+    <div class="panel-body p-none pb-md" style="height: calc(100vh - 200px);">
+        <scrollable>
+            <div class="p-md" ng-bind-html="note.html | to_trusted"></div>
+        </scrollable>
+    </div>
+    <div class="panel-footer">
+        <div class="pull-right">
+            <button class="btn btn-default" ng-click="edit()">
+                <i class="fa fa-edit"></i>
+                Edit
+            </button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</section>
+
+<div class="note-edit" ng-show="mode==1">
+    <mmt-editor content="noteEdit.content"></mmt-editor>
+
+    <div class="pull-right">
+        <button class="btn btn-danger" ng-click="cancel()"><i class="fa fa-remove"></i> Cancel</button>
+        <button id="saveNote" class="btn btn-success" ng-click="save()"><i class="fa fa-save"></i> Save</button>
+    </div>
+    <div class="clearfix"></div>
+</div>

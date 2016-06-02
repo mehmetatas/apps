@@ -1,0 +1,15 @@
+﻿<div class="app-title">
+    <h2>{{currentApp.name}}</h2>
+</div>
+<div class="apps">
+    <ul class="apps-list">
+        <li ng-repeat="app in apps" class="app-icon" ng-class="{'active':isActive(app)}">
+            <a ui-sref="{{app.sref}}" title="{{app.name}}">
+                <i class="fa {{app.icon}}"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="header-menu">
+    Menu Here
+</div>

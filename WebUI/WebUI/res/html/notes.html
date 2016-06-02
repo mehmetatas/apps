@@ -1,0 +1,19 @@
+
+<aside class="content-sidebar">
+    <scrollable>
+        <nav id="menu" role="navigation">
+            <ul class="nav nav-main">
+                <li class="menu-title">
+                    Directories
+                </li>
+                <li ng-repeat="dir in directories" ng-class="dir.dirClass">
+                    <a ui-sref="app.notes.directory({dir: dir.code})">
+                        <span class="note-title" ng-bind="dir.name"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </scrollable>
+</aside>
+
+<section class="content-body" ui-view="directory"></section>

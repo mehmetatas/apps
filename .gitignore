@@ -14,3 +14,14 @@
 # Maven
 log/
 target/
+
+.vs
+deploy
+*.sln
+*.csproj
+*.csproj.user
+*.csproj.DotSettings.user
+bin
+Properties
+obj
+bower_components
