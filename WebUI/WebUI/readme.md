@@ -1,1 +1,1 @@
-http://mehmetatas.net/app/deploy/index.html
+http://mehmetatas.net/apps
