@@ -1,19 +1,31 @@
-
 <aside class="content-sidebar">
-    <scrollable>
-        <nav id="menu" role="navigation">
+    <nav id="menu" role="navigation">
+        <div class="menu-title mt-lg">
+            <i class="fa fa-folder-open-o"></i> Directories
+            <button class="pull-right btn btn-sm btn-success mr-md"><i class="fa fa-plus"></i> New</button>
+            <div class="clearfix"></div>
+        </div>
+        <scrollable style="height: calc(100vh - 120px);">
             <ul class="nav nav-main">
-                <li class="menu-title">
-                    Directories
+                <li>
+                    <a ui-sref="app.notes.directory({dir: 'all'})">
+                        <span class="note-title">All</span>
+                    </a>
                 </li>
-                <li ng-repeat="dir in directories" ng-class="dir.dirClass">
+                <li ng-repeat="dir in directories" ng-class="dir.dirClass" mmt-contextmenu menu-selector="#dirContextMenu" menu-key="dir.code" menu-selected="onMenuSelected(action, key)">
                     <a ui-sref="app.notes.directory({dir: dir.code})">
                         <span class="note-title" ng-bind="dir.name"></span>
                     </a>
                 </li>
             </ul>
-        </nav>
-    </scrollable>
+        </scrollable>
+    </nav>
 </aside>
-
+<ul id="dirContextMenu" class="dropdown-menu context-menu" role="menu">
+    <li><a menu-action="rename" tabindex="-1" href><i class="fa fa- fa-edit"></i> Rename</a></li>
+    <li><a menu-action="move" tabindex="-1" href><i class="fa fa-arrow-right"></i> Move Notes To</a></li>
+    <li><a menu-action="info" tabindex="-1" href><i class="fa fa-info"></i> Info</a></li>
+    <li class="divider"></li>
+    <li><a menu-action="delete" tabindex="-1" href><i class="fa fa-trash-o"></i> Delete</a></li>
+</ul>
 <section class="content-body" ui-view="directory"></section>

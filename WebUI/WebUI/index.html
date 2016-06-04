@@ -30,11 +30,12 @@
     <script src="assets/vendor/modernizr/modernizr.js"></script> -->
 </head>
 <body>
-    <div ui-view></div>
+    <div style="min-width: 1024px" ui-view></div>
 
     <!-- Vendor -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -44,6 +45,7 @@
     <script src="bower_components/nanoscroller/dist/javascripts/jquery.nanoscroller.js"></script>
     <script src="bower_components/angular-nanoscroller/scrollable.js"></script>
     <script src="bower_components/faker/build/build/faker.min.js"></script>
+    <script src="res/vendor/contextmenu/jquery.bootstrap-contextmenu.js"></script>
 
     <!-- App -->
     <script src="res/js/app.js"></script>
@@ -62,5 +64,6 @@
 
     <!-- Angular Directives -->
     <script src="res/js/directives/mmt-editor.js"></script>
+    <script src="res/js/directives/mmt-contextmenu.js"></script>
 </body>
 </html>

@@ -1,7 +1,8 @@
 var app = angular.module("app", [
+    "ngSanitize",
+    "ngAnimate",
     "ui.router",
-    "sun.scrollable",
-    "ngSanitize"
+    "sun.scrollable"
 ]).run([
     "$rootScope", "$state", "$stateParams",
     function ($rootScope, $state, $stateParams) {

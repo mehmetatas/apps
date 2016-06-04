@@ -8,4 +8,10 @@
             code: title.toLowerCase().replace(/ /g, "-")
         });
     }
+
+    $scope.onMenuSelected = function (action, key) {
+        var msg = "You selected the menu item '" + action +
+            "' on the value '" + key + "'";
+        alert(msg);
+    };
 }]);
