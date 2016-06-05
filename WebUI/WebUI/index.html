@@ -24,10 +24,7 @@
     <link rel="stylesheet" href="bower_components/nanoscroller/dist/css/nanoscroller.css" />
 
     <!-- Theme CSS -->
-    <link rel="stylesheet" href="res/css/custom.css" />
-
-    <!-- Head Libs
-    <script src="assets/vendor/modernizr/modernizr.js"></script> -->
+    <link rel="stylesheet" href="style/custom.css" />
 </head>
 <body>
     <div style="min-width: 1024px" ui-view></div>
@@ -39,31 +36,46 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="res/vendor/markdown/markdown.js"></script>
+    <script src="lib/markdown/markdown.js"></script>
     <script src="bower_components/to-markdown/dist/to-markdown.js"></script>
     <script src="bower_components/bootstrap-markdown/js/bootstrap-markdown.js"></script>
     <script src="bower_components/nanoscroller/dist/javascripts/jquery.nanoscroller.js"></script>
     <script src="bower_components/angular-nanoscroller/scrollable.js"></script>
     <script src="bower_components/faker/build/build/faker.min.js"></script>
-    <script src="res/vendor/contextmenu/jquery.bootstrap-contextmenu.js"></script>
+    <script src="lib/contextmenu/jquery.bootstrap-contextmenu.js"></script>
+
+    <!-- Global -->
+    <script src="app/components/global.js"></script>
 
     <!-- App -->
-    <script src="res/js/app.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.run.js"></script>
+    <script src="app/app.routes.js"></script> 
+    
+    <!-- Componenets -->
+    <script src="app/components/providers/route-helper.js"></script>
+    <script src="app/components/filters/trusted.js"></script>
+    <script src="app/components/directives/mmt-editor.js"></script>
+    <script src="app/components/directives/mmt-contextmenu.js"></script>
+    <script src="app/components/services/markdown.js"></script>
+    
+    <!-- Layout -->
+    <script src="app/layout/layout.routes.js"></script>
+    <script src="app/layout/app.controller.js"></script>
+    <script src="app/layout/header.controller.js"></script>
 
-    <!-- Angular Controllers -->
-    <script src="res/js/controllers/activationCtrl.js"></script>
-    <script src="res/js/controllers/signinCtrl.js"></script>
-    <script src="res/js/controllers/signupCtrl.js"></script>
-    <script src="res/js/controllers/recoverPasswordRequestCtrl.js"></script>
-    <script src="res/js/controllers/recoverPasswordResetCtrl.js"></script>
-    <script src="res/js/controllers/appCtrl.js"></script>
-    <script src="res/js/controllers/headerCtrl.js"></script>
-    <script src="res/js/controllers/notesCtrl.js"></script>
-    <script src="res/js/controllers/notesDirectoryCtrl.js"></script>
-    <script src="res/js/controllers/notesNoteCtrl.js"></script>
+    <!-- Auth -->
+    <script src="app/auth/auth.routes.js"></script>
+    <script src="app/auth/activation.controller.js"></script>
+    <script src="app/auth/recover-password-request.controller.js"></script>
+    <script src="app/auth/recover-password-reset.controller.js"></script>
+    <script src="app/auth/signin.controller.js"></script>
+    <script src="app/auth/signup.controller.js"></script>
 
-    <!-- Angular Directives -->
-    <script src="res/js/directives/mmt-editor.js"></script>
-    <script src="res/js/directives/mmt-contextmenu.js"></script>
+    <!-- Notes -->
+    <script src="app/notes/notes.routes.js"></script>
+    <script src="app/notes/notes.controller.js"></script>
+    <script src="app/notes/category.controller.js"></script>
+    <script src="app/notes/note.controller.js"></script>
 </body>
 </html>

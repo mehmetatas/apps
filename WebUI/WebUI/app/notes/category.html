@@ -19,8 +19,8 @@
                 </div>
                 <scrollable style="height: calc(100vh - 200px);">
                     <ul class="notes">
-                        <li ng-repeat="note in notes" mmt-contextmenu menu-selector="#noteContextMenu" menu-key="note.code" menu-selected="onMenuSelected(action, key)">
-                            <a ui-sref="app.notes.directory.note({note: note.code})">
+                        <li ng-repeat="note in vm.notes" mmt-contextmenu menu-selector="#noteContextMenu" menu-key="note.code" menu-selected="vm.onMenuSelected(action, key)">
+                            <a ui-sref="app.notes.category.note({note: note.code})">
                                 <span class="note-title" ng-bind="note.title"></span>
                             </a>
                         </li>

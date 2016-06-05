@@ -1,12 +1,24 @@
-﻿app.directive("mmtEditor", ["$compile", function ($compile) {
-    return {
-        scope: {
-            save: "&editorSave",
-            cancel: "&editorCancel"
-        },
-        restrict: "A",
-        require: "ngModel",
-        link: function (scope, element, attrs, ngModel) {
+﻿(function () {
+    "use strict";
+
+    angular
+        .module("app")
+		.directive("mmtEditor", mmtEditor);
+
+    mmtEditor.$inject = ["$compile"];
+
+    function mmtEditor($compile) {
+        return {
+            restrict: "A",
+            require: "ngModel",
+            scope: {
+                save: "&editorSave",
+                cancel: "&editorCancel"
+            },
+            link: linkFunc
+        };
+
+        function linkFunc(scope, el, attr, ngModel) {
             var btnTemplate =
                 '<div class="pull-right editor-buttons">' +
                     '<button class="btn btn-sm btn-default mr-xs" ng-click="cancel()"><i class="fa fa-remove"></i> Cancel</button>' +
@@ -14,7 +26,7 @@
                     '<div class="clearfix"></div>' +
                 '</div>';
 
-            $(element).markdown({
+            $(el).markdown({
                 iconlibrary: "fa",
                 savable: false,
                 onChange: function (e) {
@@ -28,4 +40,4 @@
             });
         }
     }
-}]);
+})();

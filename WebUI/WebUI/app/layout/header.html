@@ -1,9 +1,9 @@
 ﻿<div class="app-title">
-    <h2>{{currentApp.name}}</h2>
+    <h2>{{vm.currentApp.name}}</h2>
 </div>
 <div class="apps">
     <ul class="apps-list">
-        <li ng-repeat="app in apps" class="app-icon" ng-class="{'active':isActive(app)}">
+        <li ng-repeat="app in vm.apps" class="app-icon" ng-class="{'active':vm.isActive(app)}">
             <a ui-sref="{{app.sref}}" title="{{app.name}}">
                 <i class="fa {{app.icon}}"></i>
             </a>
@@ -14,7 +14,7 @@
 <div class="userbox pull-right mr-md" id="userbox">
     <a data-toggle="dropdown" href="#" aria-expanded="true">
         <figure class="profile-picture">
-            <img class="img-circle" alt="Joseph Doe" src="http://mehmetatas.net/images/mmt.png">
+            <img class="img-circle" alt="Mehmet Ataş" src="http://mehmetatas.net/images/mmt.png">
         </figure>
         <div class="profile-info">
             <span class="name">Mehmet Ataş</span>
