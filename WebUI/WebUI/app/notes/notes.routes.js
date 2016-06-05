@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    mmtUtils.configureStates([
+    window.mmtUtils.configureStates([
         {
             state: "app.notes",
             config: {
@@ -16,7 +16,7 @@
             config: {
                 url: "/:cat",
                 views: {
-                    'category@app.notes': {
+                    "category@app.notes": {
                         templateUrl: "app/notes/category.html",
                         controller: "CategoryController",
                         controllerAs: "vm"
@@ -29,7 +29,7 @@
             config: {
                 url: "/:note",
                 views: {
-                    'note@app.notes.category': {
+                    "note@app.notes.category": {
                         templateUrl: "app/notes/note.html",
                         controller: "NoteController",
                         controllerAs: "vm"

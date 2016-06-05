@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    mmtUtils.configureStates([
+    window.mmtUtils.configureStates([
         {
             state: "signin",
             config: {

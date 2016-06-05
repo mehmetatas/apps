@@ -34,15 +34,11 @@
             var tags = ["h3", "strong", "em", "blockquote"];
 
             for (var i = 0; i < 20; i++) {
-                html += i < tags.length
-                    ? "<" + tags[i] + ">"
-                    : "<p>";
+                html += i < tags.length ? "<" + tags[i] + ">" : "<p>";
 
                 html += faker.lorem.paragraph();
 
-                html += i < tags.length
-                    ? "</" + tags[i] + ">"
-                    : "</p>";
+                html += i < tags.length ? "</" + tags[i] + ">" : "</p>";
             }
 
             vm.note = {
@@ -56,16 +52,16 @@
             vm.mode = vm.MODE_EDIT;
 
             vm.markdown = markdownService.toMarkdown(vm.note.html);
-        };
+        }
 
         function save() {
             vm.mode = vm.MODE_VIEW;
 
             vm.note.html = markdownService.toHTML(vm.markdown);
-        };
+        }
 
         function cancel() {
             vm.mode = vm.MODE_VIEW;
-        };
+        }
     }
 })();

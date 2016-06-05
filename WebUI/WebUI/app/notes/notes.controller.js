@@ -34,8 +34,7 @@
         // vm members 
 
         function onMenuSelected(action, key) {
-            var msg = "You selected the menu item '" + action +
-                "' on the value '" + key + "'";
+            var msg = "You selected the menu item '" + action + "' on the value '" + key + "'";
             alert(msg);
         }
     }

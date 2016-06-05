@@ -22,11 +22,10 @@
     "angular-ui-router": "^0.3.0",
     "font-awesome": "^4.6.3",
     "bootstrap-markdown": "^2.10.0",
-    "nanoscroller": "^0.8.7",
     "to-markdown": "^3.0.0",
     "faker": "facker#^3.1.0",
     "angular-sanitize": "^1.5.6",
-    "angular-nanoscroller": "^0.2.1",
-    "angular-animate": "^1.5.6"
+    "angular-animate": "^1.5.6",
+    "angular-nanoscroller": "^0.2.1"
   }
 }

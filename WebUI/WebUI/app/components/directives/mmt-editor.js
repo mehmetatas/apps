@@ -19,6 +19,7 @@
         };
 
         function linkFunc(scope, el, attr, ngModel) {
+            /* jshint -W108 */
             var btnTemplate =
                 '<div class="pull-right editor-buttons">' +
                     '<button class="btn btn-sm btn-default mr-xs" ng-click="cancel()"><i class="fa fa-remove"></i> Cancel</button>' +

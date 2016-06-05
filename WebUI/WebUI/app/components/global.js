@@ -1,4 +1,4 @@
-﻿var mmtUtils = {
+﻿window.mmtUtils = {
     configureStates: function (states) {
         angular
             .module("app")

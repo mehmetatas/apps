@@ -1,14 +1,13 @@
 ﻿(function () {
     "use strict";
 
-    angular.module("app")
+    angular
+        .module("app")
         .config(configureStates);
 
     configureStates.$inject = ["$stateProvider", "$urlRouterProvider", "$locationProvider", "nanoScrollerDefaults"];
 
     function configureStates($stateProvider, $urlRouterProvider, $locationProvider, nanoScrollerDefaults) {
-        "use strict";
-
         nanoScrollerDefaults.flash = true;
 
         $locationProvider.html5Mode({
