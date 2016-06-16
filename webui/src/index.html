@@ -1,0 +1,77 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <!-- Basic -->
+    <meta charset="UTF-8">
+
+    <title>mehmetatas.net :: apps</title>
+    <meta name="keywords" content="mehmetatas.net :: apps" />
+    <meta name="description" content="mehmetatas.net :: apps">
+    <meta name="author" content="mehmetatas.net">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <!-- lib-css:css -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-markdown/css/bootstrap-markdown.min.css">
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../node_modules/nanoscroller/bin/css/nanoscroller.css">
+    <!-- endinject -->
+
+    <!-- app-css:css -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/notes.css">
+    <link rel="stylesheet" href="css/tags.css">
+    <!-- endinject -->
+</head>
+<body>
+    <div ui-view></div>
+
+    <!-- lib-js:js -->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/to-markdown/dist/to-markdown.js"></script>
+    <script src="../node_modules/markdown/lib/markdown.js"></script>
+    <script src="../node_modules/faker/build/build/faker.js"></script>
+    <script src="../node_modules/nanoscroller/bin/javascripts/jquery.nanoscroller.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../node_modules/bootstrap-markdown/js/bootstrap-markdown.js"></script>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-animate/angular-animate.js"></script>
+    <script src="../node_modules/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/angular-nanoscroller/angular-nanoscroller.js"></script>
+    <script src="lib/contextmenu/jquery.bootstrap-contextmenu.js"></script>
+    <!-- endinject -->
+    
+    <!-- app-js:js -->
+    <script src="app/app.global.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.routes.js"></script>
+    <script src="app/app.run.js"></script>
+    <script src="app/auth/activation.controller.js"></script>
+    <script src="app/auth/auth.routes.js"></script>
+    <script src="app/auth/recover-password-request.controller.js"></script>
+    <script src="app/auth/recover-password-reset.controller.js"></script>
+    <script src="app/auth/signin.controller.js"></script>
+    <script src="app/auth/signup.controller.js"></script>
+    <script src="app/layout/app.controller.js"></script>
+    <script src="app/layout/header.controller.js"></script>
+    <script src="app/layout/layout.routes.js"></script>
+    <script src="app/notes/category.controller.js"></script>
+    <script src="app/notes/note.controller.js"></script>
+    <script src="app/notes/notes.controller.js"></script>
+    <script src="app/notes/notes.routes.js"></script>
+    <script src="app/components/directives/mmt-contextmenu.js"></script>
+    <script src="app/components/directives/mmt-editor.js"></script>
+    <script src="app/components/filters/trusted.js"></script>
+    <script src="app/components/providers/route-helper.js"></script>
+    <script src="app/components/services/markdown.js"></script>
+    <!-- endinject -->
+</body>
+</html>
