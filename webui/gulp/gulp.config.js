@@ -1,41 +1,29 @@
 module.exports = function () {
     var srcFolder = "../src/";
+    
     var appFolder = srcFolder + "app/";
     var cssFolder = srcFolder + "css/";
     var libFolder = srcFolder + "lib/";
+    
     var buildFolder = "../deploy/build/";
     var distFolder = "../deploy/dist/";
     
     var nmFolder = "../node_modules/";
-    
-    var allAppJsFiles = appFolder + "**/*.js";
-    var allCssFiles = cssFolder + "**/*.css";
 
     var config = {
         files: {
-            appCss: [
-                cssFolder + "base.css",
-                cssFolder + "layout.css",
-                allCssFiles
-            ],
-            appJs: [
-                appFolder + "app.global.js",
-                appFolder + "app.modlue.js",
-                appFolder + "app.*.js",
-                allAppJsFiles
-            ],
-            fontawesome: nmFolder + "font-awesome/fonts/**/*",
-            indexHtml: srcFolder + "index.html",
-            jsHint: [
-                allAppJsFiles,
-                "./*.js"
-            ],
-            libCss: [
+            appJs: appFolder + "**/*.js",
+            css: [
                 nmFolder + "bootstrap/dist/css/bootstrap.css",
                 nmFolder + "bootstrap-markdown/css/bootstrap-markdown.min.css",
                 nmFolder + "font-awesome/css/font-awesome.css",
-                nmFolder + "nanoscroller/bin/css/nanoscroller.css"
+                nmFolder + "nanoscroller/bin/css/nanoscroller.css",
+                cssFolder + "base.css",
+                cssFolder + "layout.css",
+                cssFolder + "**/*.css"
             ],
+            fontawesome: nmFolder + "font-awesome/fonts/**/*",
+            indexHtml: srcFolder + "index.html",
             libJs: [
                 nmFolder + "jquery/dist/jquery.js",
                 nmFolder + "to-markdown/dist/to-markdown.js",
