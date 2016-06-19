@@ -21,6 +21,8 @@
     "to-markdown": "^3.0.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "connect-history-api-fallback": "^1.2.0",
     "gulp": "^3.9.1",
     "gulp-angular-filesort": "^1.1.1",
     "gulp-angular-templatecache": "^1.9.0",

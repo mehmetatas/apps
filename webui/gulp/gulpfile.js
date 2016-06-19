@@ -2,17 +2,17 @@ var gulp = require("gulp"),
     sq = require("streamqueue"),
     runSequence = require("run-sequence"),
     g = require("gulp-load-plugins")({ lazy: true }),
+    browserSync = require("browser-sync").create(),
+    historyApiFallback = require("connect-history-api-fallback"),
     cfg = require("./gulp.config")();
 
 gulp.task("default", function() {
-    var run = function() {
-        runSequence("analyze", "build");
-    };
-    
-    run();
+    runSequence("analyze",  "build-clean", "build-copy", "browser-sync-init");
     
     return gulp
-        .watch([cfg.folders.src + "**/*", "!" + cfg.files.indexHtml], run);
+        .watch([cfg.folders.src + "**/*", "!" + cfg.files.indexHtml], function() {
+            runSequence("analyze", "build-clean", "build-copy", "browser-sync-reload");
+        });
 });
 
 gulp.task("analyze", function () {
@@ -24,12 +24,25 @@ gulp.task("analyze", function () {
         .pipe(g.jshint.reporter("fail"));
 });
 
+gulp.task("browser-sync-init", function() {
+    return browserSync.init({
+        server: {
+            baseDir: "../deploy/build/"
+            //,middleware: [historyApiFallback()]
+        }
+    });
+});
+
+gulp.task("browser-sync-reload", function() {
+    return browserSync.reload();
+});
+
 ///////////
 /* build */
 ///////////
 
 gulp.task("build", function() {
-    runSequence("build-clean", "build-copy");
+    return runSequence("build-clean", "build-copy");
 });
 
 gulp.task("build-clean", function() {
