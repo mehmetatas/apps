@@ -1,10 +1,10 @@
 var gulp = require("gulp"),
+    g = require("gulp-load-plugins")({ lazy: true }),
+    cfg = require("./gulp.config")(),
     sq = require("streamqueue"),
     runSequence = require("run-sequence"),
-    g = require("gulp-load-plugins")({ lazy: true }),
     browserSync = require("browser-sync").create(),
-    historyApiFallback = require("connect-history-api-fallback"),
-    cfg = require("./gulp.config")();
+    historyApiFallback = require("connect-history-api-fallback");
 
 gulp.task("default", function() {
     runSequence("analyze",  "build-clean", "build-copy", "browser-sync-init");
@@ -27,8 +27,8 @@ gulp.task("analyze", function () {
 gulp.task("browser-sync-init", function() {
     return browserSync.init({
         server: {
-            baseDir: "../deploy/build/"
-            //,middleware: [historyApiFallback()]
+            baseDir: "../deploy/build/",
+            middleware: [historyApiFallback()]
         }
     });
 });
