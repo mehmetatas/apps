@@ -1,1 +1,0 @@
-http://mehmetatas.net/apps
