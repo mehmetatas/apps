@@ -1,0 +1,31 @@
+<aside class="content-sidebar">
+    <nav id="menu" role="navigation">
+        <div class="menu-title mt-lg">
+            <i class="fa fa-folder-open-o"></i> Categories
+            <button class="pull-right btn btn-sm btn-success mr-md"><i class="fa fa-plus"></i> New</button>
+            <div class="clearfix"></div>
+        </div>
+        <scrollable style="height: calc(100vh - 120px);">
+            <ul class="nav nav-main">
+                <li>
+                    <a ui-sref="app.notes.category({cat: 'all'})">
+                        <span class="note-title">All</span>
+                    </a>
+                </li>
+                <li ng-repeat="cat in vm.categories" mmt-contextmenu menu-selector="#catContextMenu" menu-key="cat.code" menu-selected="onMenuSelected(action, key)">
+                    <a ui-sref="app.notes.category({cat: cat.code})">
+                        <span class="note-title" ng-bind="cat.name"></span>
+                    </a>
+                </li>
+            </ul>
+        </scrollable>
+    </nav>
+</aside>
+<ul id="catContextMenu" class="dropdown-menu context-menu" role="menu">
+    <li><a menu-action="rename" tabindex="-1" href><i class="fa fa- fa-edit"></i> Rename</a></li>
+    <li><a menu-action="move" tabindex="-1" href><i class="fa fa-arrow-right"></i> Move Notes To</a></li>
+    <li><a menu-action="info" tabindex="-1" href><i class="fa fa-info"></i> Info</a></li>
+    <li class="divider"></li>
+    <li><a menu-action="delete" tabindex="-1" href><i class="fa fa-trash-o"></i> Delete</a></li>
+</ul>
+<section class="content-body" ui-view="category"></section>

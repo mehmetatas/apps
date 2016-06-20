@@ -1,0 +1,125 @@
+﻿
+.tags {
+    word-wrap: normal;
+}
+
+.tag {
+    display: inline-block;
+    padding: .2em .6em .3em;
+    font-weight: bold;
+    font-size: 80%;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    margin: 5px;
+    border-radius: .25em;
+}
+
+.tag-000 {
+    background-color: #000;
+}
+
+.tag-008 {
+    background-color: #008;
+}
+
+.tag-00f {
+    background-color: #00f;
+}
+
+.tag-080 {
+    background-color: #080;
+}
+
+.tag-088 {
+    background-color: #088;
+}
+
+.tag-08f {
+    background-color: #08f;
+}
+
+.tag-0f0 {
+    background-color: #0f0;
+}
+
+.tag-0f8 {
+    background-color: #0f8;
+}
+
+.tag-0ff {
+    background-color: #0ff;
+}
+
+.tag-800 {
+    background-color: #800;
+}
+
+.tag-808 {
+    background-color: #808;
+}
+
+.tag-80f {
+    background-color: #80f;
+}
+
+.tag-880 {
+    background-color: #880;
+}
+
+.tag-888 {
+    background-color: #888;
+}
+
+.tag-88f {
+    background-color: #88f;
+}
+
+.tag-8f0 {
+    background-color: #8f0;
+}
+
+.tag-8f8 {
+    background-color: #8f8;
+}
+
+.tag-8ff {
+    background-color: #8ff;
+}
+
+.tag-f00 {
+    background-color: #f00;
+}
+
+.tag-f08 {
+    background-color: #f08;
+}
+
+.tag-f0f {
+    background-color: #f0f;
+}
+
+.tag-f80 {
+    background-color: #f80;
+}
+
+.tag-f88 {
+    background-color: #f88;
+}
+
+.tag-f8f {
+    background-color: #f8f;
+}
+
+.tag-ff0 {
+    background-color: #ff0;
+}
+
+.tag-ff8 {
+    background-color: #ff8;
+}
+
+.tag-fff {
+    background-color: #fff;
+}

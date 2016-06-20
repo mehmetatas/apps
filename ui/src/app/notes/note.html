@@ -1,0 +1,21 @@
+<section class="panel" ng-show="vm.mode==vm.MODE_VIEW">
+    <header class="panel-heading">
+        Last Updated: 2016-04-12 21:43:54
+        <div class="pull-right">
+            <button class="btn btn-sm btn-default" ng-click="vm.edit()">
+                <i class="fa fa-edit"></i>
+                Edit
+            </button>
+        </div>
+        <div class="clearfix"></div>
+    </header>
+    <div class="panel-body p-none pb-md" style="height: calc(100vh - 150px);">
+        <scrollable>
+            <div class="note-content" ng-bind-html="vm.note.html | trusted"></div>
+        </scrollable>
+    </div>
+</section>
+
+<div class="note-edit" ng-show="vm.mode==vm.MODE_EDIT">
+    <textarea mmt-editor editor-save="vm.save()" editor-cancel="vm.cancel()" ng-model="vm.markdown" style="height: calc(100vh - 151px)"></textarea>
+</div>
