@@ -7,7 +7,7 @@ var gulp = require("gulp"),
     historyApiFallback = require("connect-history-api-fallback");
 
 gulp.task("default", function() {
-    runSequence("analyze",  "build-clean", "build-copy", "browser-sync-init");
+    runSequence("analyze", "build-clean", "build-copy", "browser-sync-init");
     
     return gulp
         .watch([cfg.folders.src + "**/*", "!" + cfg.files.indexHtml], function() {
@@ -42,7 +42,7 @@ gulp.task("browser-sync-reload", function() {
 ///////////
 
 gulp.task("build", function() {
-    return runSequence("build-clean", "build-copy");
+    return runSequence("analyze", "build-clean", "build-copy");
 });
 
 gulp.task("build-clean", function() {
