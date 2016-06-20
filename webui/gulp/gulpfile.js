@@ -94,13 +94,6 @@ gulp.task("build-copy", function() {
 /* dist */
 //////////
 
-gulp.task("tc", function() {
-    return gulp
-        .src(cfg.folders.app + "**/*.html")
-        .pipe(g.angularTemplatecache({ module: "app", root: "app/" }))
-        .pipe(gulp.dest("XXX"));
-});
-
 gulp.task("dist", function() {
     runSequence("dist-clean", "dist-copy");
 });
