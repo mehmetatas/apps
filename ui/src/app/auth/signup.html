@@ -1,4 +1,4 @@
-﻿<section class="body-sign">
+<section class="body-sign">
     <div class="center-sign">
         <div class="logo pull-left">
             Apps
@@ -11,10 +11,21 @@
             <div class="panel-body">
                 <div class="form-group mb-lg">
                     <div class="input-group input-group-icon">
-                        <input placeholder="E-mail" type="email" class="form-control input-lg" maxlength="255" />
+                        <input placeholder="E-mail" type="email" class="form-control input-lg" maxlength="255" ng-model="vm.email" />
                         <span class="input-group-addon">
                             <span class="icon icon-lg">
-                                <i class="fa fa-at"></i>
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="form-group mb-lg">
+                    <div class="input-group input-group-icon">
+                        <input placeholder="Username" type="text" class="form-control input-lg" maxlength="32" ng-model="vm.username" />
+                        <span class="input-group-addon">
+                            <span class="icon icon-lg">
+                                <i class="fa fa-user"></i>
                             </span>
                         </span>
                     </div>
@@ -22,7 +33,7 @@
 
                 <div class="form-group mb-lg">
                     <div class="input-group input-group-icon">
-                        <input placeholder="Password" type="password" class="form-control input-lg" maxlength="32" />
+                        <input placeholder="Password" type="password" class="form-control input-lg" maxlength="32" ng-model="vm.password" />
                         <span class="input-group-addon">
                             <span class="icon icon-lg">
                                 <i class="fa fa-lock"></i>
@@ -31,17 +42,6 @@
                     </div>
                 </div>
                 
-                <div class="form-group mb-lg">
-                    <div class="input-group input-group-icon">
-                        <input placeholder="Confirm Password" type="password" class="form-control input-lg" maxlength="32" />
-                        <span class="input-group-addon">
-                            <span class="icon icon-lg">
-                                <i class="fa fa-lock"></i>
-                            </span>
-                        </span>
-                    </div>
-                </div>
-
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="checkbox-custom checkbox-primary">
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <div class="col-sm-4 text-right">
-                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                        <button type="submit" class="btn btn-primary" ng-click="vm.signup()">Sign Up</button>
                     </div>
                 </div>
 
