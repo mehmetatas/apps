@@ -37,6 +37,7 @@
     "gulp-ng-annotate": "^2.0.0",
     "gulp-rev": "^7.1.0",
     "gulp-uglify": "^1.5.3",
+    "http-proxy-middleware": "^0.16.0",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
     "run-sequence": "^1.2.1",

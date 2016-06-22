@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by mehmet on 03.06.2016.
  */
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/v1/auth")
 public class AuthController {
     private SignupService signupService;
 
@@ -21,7 +21,6 @@ public class AuthController {
     }
 
     @Transactional
-    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void signup(@RequestBody SignupRequest request) {

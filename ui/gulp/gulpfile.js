@@ -4,7 +4,8 @@ var gulp = require("gulp"),
     sq = require("streamqueue"),
     runSequence = require("run-sequence"),
     browserSync = require("browser-sync").create(),
-    historyApiFallback = require("connect-history-api-fallback");
+    historyApiFallback = require("connect-history-api-fallback"),
+    proxy = require("http-proxy-middleware");
 
 gulp.task("default", function() {
     runSequence("analyze", "build-clean", "build-copy", "browser-sync-init");
@@ -26,9 +27,12 @@ gulp.task("analyze", function () {
 
 gulp.task("browser-sync-init", function() {
     return browserSync.init({
+        port: 80,
         server: {
             baseDir: "../deploy/build/",
-            middleware: [historyApiFallback()]
+            middleware: [
+                route("auth", 8080),
+                historyApiFallback()]
         }
     });
 });
@@ -155,3 +159,18 @@ gulp.task("dist-copy", function () {
         .pipe(g.minifyHtml({ empty: true }))
         .pipe(gulp.dest(cfg.folders.dist));
 });
+
+/////////////
+/* routing */
+/////////////
+
+function route(service, port) {
+    return proxy("/api/v*/" + service + "/**", {
+        target: "http://localhost:" + port,
+        // changeOrigin: true,
+        logLevel: "debug",
+        pathRewrite: {
+            "^/api" : ""
+        }
+    });
+}
