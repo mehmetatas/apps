@@ -167,10 +167,9 @@ gulp.task("dist-copy", function () {
 function route(service, port) {
     return proxy("/api/v*/" + service + "/**", {
         target: "http://localhost:" + port,
-        // changeOrigin: true,
         logLevel: "debug",
         pathRewrite: {
-            "^/api" : ""
+            "^/api": ""
         }
     });
 }
