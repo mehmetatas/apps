@@ -6,33 +6,29 @@
         .provider("routerHelper", routerHelperProvider);
 
     /* @ngInject */
-    function routerHelperProvider($locationProvider, $stateProvider, $urlRouterProvider) {
+    function routerHelperProvider($stateProvider) {
         /* jshint validthis: true */
         this.$get = RouterHelper;
 
         RouterHelper.$inject = ["$state"];
 
         function RouterHelper($state) {
-            var hasOtherwise = false;
-
-            var service = {
+            return {
                 configureStates: configureStates,
                 getStates: getStates
             };
-
-            return service;
-
-            function configureStates(states, otherwisePath) {
-                states.forEach(function (state) {
-                    $stateProvider.state(state.state, state.config);
-                });
-                if (otherwisePath && !hasOtherwise) {
-                    hasOtherwise = true;
-                    $urlRouterProvider.otherwise(otherwisePath);
+            
+            function configureStates(states) {
+                for(var state in states) {
+                    if (states.hasOwnProperty(state)) {
+                        $stateProvider.state(state, states[state]);
+                    }
                 }
             }
 
-            function getStates() { return $state.get(); }
+            function getStates() { 
+                return $state.get(); 
+            }
         }
     }
 })();

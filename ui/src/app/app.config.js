@@ -3,14 +3,14 @@
 
     angular
         .module("app")
-        .config(configureStates) 
+        .config(configure) 
         .constant("apiVersions", {
             "default": "v1",
             "auth": "v1"
         });
 
     /* @ngInject */
-    function configureStates(nanoScrollerDefaults, $httpProvider, $urlRouterProvider, $locationProvider, $stateProvider) {      
+    function configure(nanoScrollerDefaults, $httpProvider, $urlRouterProvider, $locationProvider) {      
         
         //
         // configure nano scroller
@@ -23,39 +23,16 @@
         $httpProvider.interceptors.push("httpInterceptor");
         
         //
-        // default route routes
+        // configure default route
         // -----------------------------------
         $urlRouterProvider.otherwise("/");
         
         //
-        // location provider html5 mode
+        // configure location provider html5 mode
         // -----------------------------------
         $locationProvider.html5Mode({
             enabled: true,
             requireBase: false
         });
-
-        //
-        // app routes
-        // -----------------------------------
-        $stateProvider
-            // Home
-            // -----------------------------------
-            .state("app.home", {
-                url: "/",
-                templateUrl: "app/dashboard/dashboard.html"
-            })
-            // File Manager
-            // -----------------------------------
-            .state("app.filemanager", {
-                url: "/filemanager",
-                templateUrl: "app/filemanager/filemanager.html"
-            })
-            // Mail
-            // -----------------------------------
-            .state("app.mail", {
-                url: "/mail",
-                templateUrl: "app/mail/mail.html"
-            });
     }
 })();

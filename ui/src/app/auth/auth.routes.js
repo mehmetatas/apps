@@ -1,51 +1,43 @@
 (function () {
     "use strict";
+    
+    angular
+        .module("app")
+        .run(configureStates);
 
-    window.mmtUtils.configureStates([
-        {
-            state: "signin",
-            config: {
+    /* @ngInject */
+    function configureStates(routerHelper) {
+        routerHelper.configureStates({
+            "signin": {
                 url: "/signin",
                 templateUrl: "app/auth/signin.html",
                 controller: "SignInController",
                 controllerAs: "vm"
-            }
-        },
-        {
-            state: "signup",
-            config: {
+            },
+            "signup": {
                 url: "/signup",
                 templateUrl: "app/auth/signup.html",
                 controller: "SignUpController",
                 controllerAs: "vm"
-            }
-        },
-        {
-            state: "recoverPasswordRequest",
-            config: {
+            },
+            "recoverPasswordRequest": {
                 url: "/recoverPasswordRequest",
                 templateUrl: "app/auth/recover-password-request.html",
                 controller: "RecoverPasswordRequestController",
                 controllerAs: "vm"
-            }
-        },
-        {
-            state: "recoverPasswordReset",
-            config: {
+            },
+            "recoverPasswordReset": {
                 url: "/recoverPasswordReset",
                 templateUrl: "app/auth/recover-password-reset.html",
                 controller: "RecoverPasswordResetController",
                 controllerAs: "vm"
-            }
-        },
-        {
-            state: "activation",
-            config: {
+            },
+            "activation": {
                 url: "/activation",
                 templateUrl: "app/auth/activation.html",
                 controller: "ActivationController",
                 controllerAs: "vm"
             }
-        }
-    ]);
+        });
+    }
 })();

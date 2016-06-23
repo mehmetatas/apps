@@ -1,19 +1,20 @@
 (function () {
     "use strict";
+    
+    angular
+        .module("app")
+        .run(configureStates);
 
-    window.mmtUtils.configureStates([
-        {
-            state: "app.notes",
-            config: {
+    /* @ngInject */
+    function configureStates(routerHelper) {
+        routerHelper.configureStates({
+            "app.notes": {
                 url: "/notes",
                 templateUrl: "app/notes/notes.html",
                 controller: "NotesController",
                 controllerAs: "vm"
-            }
-        },
-        {
-            state: "app.notes.category",
-            config: {
+            },
+            "app.notes.category": {
                 url: "/:cat",
                 views: {
                     "category@app.notes": {
@@ -22,11 +23,8 @@
                         controllerAs: "vm"
                     }
                 }
-            }
-        },
-        {
-            state: "app.notes.category.note",
-            config: {
+            },
+            "app.notes.category.note": {
                 url: "/:note",
                 views: {
                     "note@app.notes.category": {
@@ -36,6 +34,6 @@
                     }
                 }
             }
-        }
-    ]);
+        });
+    }
 })();

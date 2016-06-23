@@ -35,7 +35,7 @@
         }
         
         function buildUrl(opts) {
-            var version = opts.version || (apiVersions[opts.service] || apiVersions.default);
+            var version = opts.version || apiVersions[opts.service] || apiVersions.default;
             return "/api/" + version + "/" + opts.service + "/" + opts.path;
         }
     }
