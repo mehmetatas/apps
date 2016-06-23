@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by mehmet on 03.06.2016.
  */
 @RestController
-@RequestMapping("/v1/auth")
+@RequestMapping("/v1")
 public class AuthController {
     private SignupService signupService;
 
@@ -57,7 +57,7 @@ public class AuthController {
 
     }
 
-    @RequestMapping(value = "/refresh", method = RequestMethod.POST)
+    @RequestMapping(value = "/refreshToken", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.FOUND)
     public void refreshToken() {
 

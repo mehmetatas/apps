@@ -3,19 +3,37 @@
 
     angular
         .module("app")
-        .config(configureStates);
+        .config(configureStates) 
+        .constant("apiVersions", {
+            "default": "v1",
+            "auth": "v1"
+        });
 
     /* @ngInject */
-    function configureStates($stateProvider, $urlRouterProvider, $locationProvider, nanoScrollerDefaults) {
+    function configureStates(nanoScrollerDefaults, $httpProvider, $urlRouterProvider, $locationProvider, $stateProvider) {      
+        
+        //
+        // configure nano scroller
+        // -----------------------------------
         nanoScrollerDefaults.flash = true;
-
+        
+        //
+        // configure http interceptor
+        // -----------------------------------
+        $httpProvider.interceptors.push("httpInterceptor");
+        
+        //
+        // default route routes
+        // -----------------------------------
+        $urlRouterProvider.otherwise("/");
+        
+        //
+        // location provider html5 mode
+        // -----------------------------------
         $locationProvider.html5Mode({
             enabled: true,
             requireBase: false
         });
-
-        // default route to dashboard
-        $urlRouterProvider.otherwise("/");
 
         //
         // app routes

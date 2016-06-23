@@ -6,7 +6,7 @@
 		.controller("SignUpController", SignUpController);
 
     /* @ngInject */
-    function SignUpController($http) {
+    function SignUpController(authService) {
         var vm = this;
         
         vm.email = "";
@@ -23,27 +23,24 @@
 
         // vm members
         function signup() {
-            $http({
-                method: "POST",
-                url: "/api/v1/auth/signup",
-                data: {
-                    username: vm.username,
-                    email: vm.email,
-                    password: vm.password
-                },
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            }).then(function successCallback(response) {
-                alert("ok");
-            }, function errorCallback(response) {
-                if (response.data.message) {
-                    alert(response.data.message);
-                }
-                else {
-                    alert("Unknown Error: " + JSON.stringify(response.data));
-                }
-            });
+            var req = {
+                username: vm.username,
+                email: vm.email,
+                password: vm.password
+            };
+            
+            return authService
+                .signup(req)
+                .then(signupSuccess)
+                .catch(signupFail);
+            
+            function signupSuccess(response) { 
+                alert("success"); 
+            }
+            
+            function signupFail(response, status, headers, config) { 
+                alert("fail: " + JSON.stringify(response.data));
+            }
         }
     }
 })();

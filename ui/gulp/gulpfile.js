@@ -165,11 +165,14 @@ gulp.task("dist-copy", function () {
 /////////////////
 
 function routeApi(service, port) {
+    
     return proxy("/api/v*/" + service + "/**", {
         target: "http://localhost:" + port,
         logLevel: "debug",
-        pathRewrite: {
-            "^/api": ""
+        pathRewrite: function (path, req) {
+            return path
+                .replace("/api", "")
+                .replace("/" + service + "/", "/");
         }
     });
 }
