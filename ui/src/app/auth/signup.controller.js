@@ -3,10 +3,10 @@
 
     angular
         .module("app")
-		.controller("SignUpController", SignUpController);
+		.controller("SignupController", SignupController);
 
     /* @ngInject */
-    function SignUpController(authService) {
+    function SignupController(authService) {
         var vm = this;
         
         vm.email = "";

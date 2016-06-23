@@ -8,9 +8,12 @@
     /* @ngInject */
     function configureStates(routerHelper) {
         routerHelper.configureStates({
-            "app.filemanager": {
-                url: "/filemanager",
-                templateUrl: "app/filemanager/filemanager.html"
+            viewBase: "app/layout/",
+            states: {
+                "app": {
+                    url: "",
+                    abstract: true
+                }
             }
         });
     }

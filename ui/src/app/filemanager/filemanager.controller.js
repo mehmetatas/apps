@@ -3,10 +3,10 @@
 
     angular
         .module("app")
-		.controller("SigninController", SigninController);
+		.controller("FilemanagerController", FilemanagerController);
 
     /* @ngInject */
-    function SigninController() {
+    function FilemanagerController() {
         var vm = this;
 
         // activate

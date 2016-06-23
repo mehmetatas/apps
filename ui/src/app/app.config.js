@@ -23,7 +23,7 @@
         $httpProvider.interceptors.push("httpInterceptor");
         
         //
-        // configure default route
+        // configure default route "/" -> app.dashboard
         // -----------------------------------
         $urlRouterProvider.otherwise("/");
         

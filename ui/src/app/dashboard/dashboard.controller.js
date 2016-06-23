@@ -3,10 +3,10 @@
 
     angular
         .module("app")
-		.controller("SigninController", SigninController);
+		.controller("DashboardController", DashboardController);
 
     /* @ngInject */
-    function SigninController() {
+    function DashboardController() {
         var vm = this;
 
         // activate

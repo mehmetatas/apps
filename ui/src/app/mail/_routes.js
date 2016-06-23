@@ -8,9 +8,9 @@
     /* @ngInject */
     function configureStates(routerHelper) {
         routerHelper.configureStates({
-            "app.mail": {
-                url: "/mail",
-                templateUrl: "app/mail/mail.html"
+            viewBase: "app/mail/",
+            states: {
+                "app.mail": null
             }
         });
     }

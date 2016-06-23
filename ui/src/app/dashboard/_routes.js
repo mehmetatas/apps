@@ -8,9 +8,9 @@
     /* @ngInject */
     function configureStates(routerHelper) {
         routerHelper.configureStates({
-            "app.home": {
-                url: "/",
-                templateUrl: "app/dashboard/dashboard.html"
+            viewBase: "app/dashboard/",
+            states: {
+                "app.dashboard": "/"
             }
         });
     }
