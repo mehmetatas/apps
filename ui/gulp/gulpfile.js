@@ -31,7 +31,7 @@ gulp.task("browser-sync-init", function() {
         server: {
             baseDir: "../deploy/build/",
             middleware: [
-                route("auth", 8080),
+                routeApi("auth", 8080),
                 historyApiFallback()]
         }
     });
@@ -160,11 +160,11 @@ gulp.task("dist-copy", function () {
         .pipe(gulp.dest(cfg.folders.dist));
 });
 
-/////////////
-/* routing */
-/////////////
+/////////////////
+/* api routing */
+/////////////////
 
-function route(service, port) {
+function routeApi(service, port) {
     return proxy("/api/v*/" + service + "/**", {
         target: "http://localhost:" + port,
         logLevel: "debug",
