@@ -1,9 +1,12 @@
 package net.mehmetatas.apps.auth.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
+
+import static net.mehmetatas.apps.auth.utils.FieldLengths.USER_EMAIL;
 
 /**
  * Created by mehmet on 21.06.2016.
@@ -20,6 +23,7 @@ public class User {
     @GeneratedValue
     private long id;
 
+    @Column(length = USER_EMAIL, nullable = false)
     private String email;
 
     private String password;
