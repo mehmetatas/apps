@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
 public class EmailValidationException extends AppException {
     public EmailValidationException() {
-        super("The email you entered does not represent a valid email address!");
+        super("exceptions.validation.emailValidation");
     }
 }

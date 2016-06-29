@@ -1,15 +1,16 @@
 package net.mehmetatas.apps.auth.repositories;
 
 import net.mehmetatas.apps.auth.entities.Login;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.NoRepositoryBean;
 
-import java.util.Date;
 import java.util.UUID;
 
 /**
- * Created by mehmet on 08.05.2016.
+ * Created by mehmetatas on 29/06/16.
  */
-public interface LoginRepository extends JpaRepository<Login, Long> {
-    Login findFirstByUserIdAndExpireDateAfterOrderByExpireDateDesc(long userId, Date expireDate);
-    Login findByTokenAndIsPasswordRecoveryFalse(UUID token);
+@NoRepositoryBean
+public interface LoginRepository extends Repository<Login, Long> {
+    Login getLastActiveLoginOfUser(long userId);
+
+    Login getByToken(UUID token);
 }

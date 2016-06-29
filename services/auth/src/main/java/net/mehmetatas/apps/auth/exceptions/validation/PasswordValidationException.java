@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
 public class PasswordValidationException extends AppException {
     public PasswordValidationException(String reason) {
-        super("The password you entered does not match our password policy: " + reason);
+        super("exceptions.validation.passwordValidation", reason);
     }
 }

@@ -6,12 +6,11 @@ import net.mehmetatas.apps.auth.exceptions.auth.LoginFailedException;
 import net.mehmetatas.apps.auth.providers.CryptoProvider;
 import net.mehmetatas.apps.auth.repositories.LoginRepository;
 import net.mehmetatas.apps.auth.repositories.UserRepository;
+import net.mehmetatas.apps.auth.repositories.impl.LoginRepositoryImpl;
+import net.mehmetatas.apps.auth.repositories.impl.UserRepositoryImpl;
 import net.mehmetatas.apps.auth.services.SigninService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.Date;
-import java.util.List;
 
 /**
  * Created by mehmet on 08.05.2016.
@@ -31,7 +30,7 @@ public class SigninServiceImpl implements SigninService {
 
     @Override
     public Login signin(String email, String password) {
-        User user = userRepository.findByEmail(email);
+        User user = userRepository.getByEmail(email);
 
         if (user == null) {
             throw new LoginFailedException();
@@ -43,7 +42,7 @@ public class SigninServiceImpl implements SigninService {
             throw new LoginFailedException();
         }
 
-        Login login = loginRepo.findFirstByUserIdAndExpireDateAfterOrderByExpireDateDesc(user.getId(), new Date());
+        Login login = loginRepo.getLastActiveLoginOfUser(user.getId());
 
         if (login == null) {
             login = Login.newLogin(user);

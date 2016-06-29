@@ -6,5 +6,6 @@ package net.mehmetatas.apps.auth.utils;
 public abstract class FieldLengths {
     private FieldLengths() {}
 
-    public static final int USER_EMAIL = 255;
+    public static final int USER_EMAIL_MINLEN = 5;
+    public static final int USER_EMAIL_MAXLEN = 255;
 }

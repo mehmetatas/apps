@@ -1,10 +1,11 @@
 package net.mehmetatas.apps.auth.controllers.v1;
 
-import net.mehmetatas.apps.auth.controllers.v1.messages.SignupRequest;
+import net.mehmetatas.apps.auth.controllers.v1.dto.SignupRequest;
 import net.mehmetatas.apps.auth.services.SignupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -23,7 +24,7 @@ public class AuthController {
     @Transactional
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void signup(@RequestBody SignupRequest request) {
+    public void signup(@Validated @RequestBody SignupRequest request) {
         signupService.signup(request.email, request.password, request.username);
     }
 

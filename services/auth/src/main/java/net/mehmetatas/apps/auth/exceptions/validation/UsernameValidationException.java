@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
 public class UsernameValidationException extends AppException {
     public UsernameValidationException(String reason) {
-        super("The username you entered does not match our username policy: " + reason);
+        super("exceptions.validation.usernameValidation", reason);
     }
 }

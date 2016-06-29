@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
 
-import static net.mehmetatas.apps.auth.utils.FieldLengths.USER_EMAIL;
+import static net.mehmetatas.apps.auth.utils.FieldLengths.*;
 
 /**
  * Created by mehmet on 21.06.2016.
@@ -23,7 +23,7 @@ public class User {
     @GeneratedValue
     private long id;
 
-    @Column(length = USER_EMAIL, nullable = false)
+    @Column(length = USER_EMAIL_MAXLEN, nullable = false)
     private String email;
 
     private String password;
@@ -69,5 +69,17 @@ public class User {
 
     public int getStatus() {
         return status;
+    }
+
+    public static User newUser(String email, String password, String username) {
+        User user = new User();
+
+        user.email = email;
+        user.password = password;
+        user.username = username;
+        user.joinDate = new Date();
+        user.status = STATUS_WAITING_ACTIVATION;
+
+        return user;
     }
 }

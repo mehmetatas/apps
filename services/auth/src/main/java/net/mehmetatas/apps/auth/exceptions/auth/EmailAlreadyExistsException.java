@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.CONFLICT)
 public class EmailAlreadyExistsException extends AppException {
     public EmailAlreadyExistsException(String email) {
-        super(String.format("Email (%s) already exists in the system!", email));
+        super("exceptions.auth.emailAlreadyExists", email);
     }
 }

@@ -7,6 +7,6 @@ import net.mehmetatas.apps.auth.exceptions.AppException;
  */
 public class UsernameAlreadyExistsException extends AppException {
     public UsernameAlreadyExistsException(String username) {
-        super(String.format("Username (%s) already exists in the system!", username));
+        super(String.format("exceptions.auth.usernameAlreadyExists", username));
     }
 }

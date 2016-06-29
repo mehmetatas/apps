@@ -1,11 +1,12 @@
 package net.mehmetatas.apps.auth.repositories;
 
 import net.mehmetatas.apps.auth.entities.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.NoRepositoryBean;
 
 /**
- * Created by mehmet on 28.04.2016.
+ * Created by mehmetatas on 29/06/16.
  */
-public interface UserRepository extends JpaRepository<User, Long> {
-    User findByEmail(String email);
+@NoRepositoryBean
+public interface UserRepository extends Repository<User, Long> {
+    User getByEmail(String email);
 }

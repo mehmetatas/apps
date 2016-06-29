@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.UNAUTHORIZED)
 public class LoginFailedException extends AppException {
     public LoginFailedException() {
-        super("Incorrect email address or password!");
+        super("exceptions.auth.loginFailed");
     }
 }

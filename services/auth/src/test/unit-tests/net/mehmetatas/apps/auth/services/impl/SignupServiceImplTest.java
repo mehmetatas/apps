@@ -55,8 +55,8 @@ public class SignupServiceImplTest extends TestBase {
     @Test
     public void signup_should_fail_when_email_already_exists() {
         // arrange
-        when(userRepo.findByEmail(email))
-                .thenReturn(new User(email, password, username, new Date(), status));
+        when(userRepo.getByEmail(email))
+                .thenReturn(User.newUser(email, password, username));
 
         // act & assert
         assertThrows(EmailAlreadyExistsException.class,
@@ -66,7 +66,7 @@ public class SignupServiceImplTest extends TestBase {
         verify(emailValidator, once()).validate(email);
         verify(pwdValidator, once()).validate(password);
         verify(usernameValidator, once()).validate(username);
-        verify(userRepo, once()).findByEmail(email);
+        verify(userRepo, once()).getByEmail(email);
         verify(crypto, never()).encryptPassword(password);
         verify(userRepo, never()).save(any(User.class));
     }
@@ -92,7 +92,7 @@ public class SignupServiceImplTest extends TestBase {
         verify(emailValidator, once()).validate(email);
         verify(pwdValidator, once()).validate(password);
         verify(usernameValidator, once()).validate(username);
-        verify(userRepo, once()).findByEmail(email);
+        verify(userRepo, once()).getByEmail(email);
         verify(crypto, once()).encryptPassword(password);
         verify(userRepo, once()).save(user);
     }

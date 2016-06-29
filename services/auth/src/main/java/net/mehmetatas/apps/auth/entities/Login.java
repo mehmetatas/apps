@@ -23,17 +23,14 @@ public class Login {
     @Type(type="org.hibernate.type.UUIDCharType")
     private UUID token;
 
-    private boolean isPasswordRecovery;
-
     private Date expireDate;
 
     Login() {
     }
 
-    public Login(UUID token, User user, boolean isPasswordRecovery, Date expireDate) {
+    public Login(UUID token, User user, Date expireDate) {
         this.token = token;
-        this.user = user;
-        this.isPasswordRecovery = isPasswordRecovery;
+        this.user = user;;
         this.expireDate = expireDate;
     }
 
@@ -49,10 +46,6 @@ public class Login {
         return user;
     }
 
-    public boolean isPasswordRecovery() {
-        return isPasswordRecovery;
-    }
-
     public Date getExpireDate() {
         return expireDate;
     }
@@ -61,7 +54,6 @@ public class Login {
         return new Login(
                 UUID.randomUUID(),
                 user,
-                false,
                 addDays(new Date(), 30));
     }
 
